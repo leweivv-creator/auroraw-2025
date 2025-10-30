@@ -1,3 +1,15 @@
+/* === Font setup: Playfair Display + Inter === */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, .lede {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.2px;
+}
+h1 { font-weight: 600; font-style: italic; }
 :root{
   --bg:#0a0809; --fg:#fff8fb; --muted:#ffcfe0; --card:#150e11; --line:#2a1a21; --accent:#ff4da0; --accent-2:#ffd08a;
 }
