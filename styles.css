@@ -63,4 +63,37 @@ html[data-theme='bw']{
 .track-meta{ padding:10px 12px }
 .track-title{ font-weight:600; line-height:1.2; margin-bottom:4px }
 .track-artist{ color:var(--muted); font-size:12px; line-height:1.2 }
+/* === Hover glow + play icon overlay === */
+.track-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* 封面光晕 */
+.track-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 16px 4px var(--accent);
+  border-color: var(--accent);
+}
+
+/* 播放图标 */
+.track-card::after {
+  content: "▶";
+  position: absolute;
+  font-size: 36px;
+  color: var(--accent);
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* 鼠标移上去出现播放提示 */
+.track-card:hover::after {
+  opacity: 0.9;
+  transform: translate(-50%, -50%) scale(1);
+}
 
