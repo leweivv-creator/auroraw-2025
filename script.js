@@ -92,3 +92,32 @@
 
   render();
 })();
+// === Lightbox: 点击图片放大 ===
+(function(){
+  const grid = document.querySelector('.grid.photos');
+  if(!grid) return;
+
+  // 创建 overlay
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  overlay.innerHTML = '<img class="lightbox-img" alt="photo">';
+  document.body.appendChild(overlay);
+  const big = overlay.querySelector('.lightbox-img');
+
+  // 打开
+  grid.addEventListener('click', (e)=>{
+    const img = e.target.closest('img');
+    if(!img) return;
+    const full = img.getAttribute('data-full') || img.src; // 可用 data-full 指向原图
+    big.src = full;
+    big.alt = img.alt || '';
+    overlay.classList.add('open');
+  });
+
+  // 关闭（点击空白或按 ESC）
+  overlay.addEventListener('click', ()=> overlay.classList.remove('open'));
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape') overlay.classList.remove('open');
+  });
+})();
+
