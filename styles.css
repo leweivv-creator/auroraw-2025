@@ -154,4 +154,28 @@ html[data-theme='bw']{
   opacity: 0.9;
   transform: translate(-50%, -50%) scale(1);
 }
+/* === Photo Masonry Layout（不裁剪，保留原比例） === */
+.grid.photos{
+  column-count: 3;          /* 桌面端三列 */
+  column-gap: 16px;
+  margin-top: 20px;
+}
+.grid.photos img{
+  width: 100%;
+  height: auto;             /* 不固定比例 */
+  display: block;
+  margin-bottom: 16px;      /* 行距 */
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #000;
+  break-inside: avoid;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.grid.photos img:hover{
+  transform: scale(1.02);
+  box-shadow: 0 0 16px var(--accent);
+  border-color: var(--accent);
+}
+@media (max-width: 900px){ .grid.photos{ column-count: 2; } }
+@media (max-width: 560px){ .grid.photos{ column-count: 1; } }
 
