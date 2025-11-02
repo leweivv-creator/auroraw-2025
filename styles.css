@@ -26,38 +26,52 @@ html[data-theme='bw']{
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:56px}.brand{display:flex;align-items:center;gap:8px}.dot{width:8px;height:8px;border-radius:999px;background:var(--accent)}.brand-text{font-weight:600}.sep{opacity:.5}.muted{color:var(--muted)}.links{display:flex;gap:16px;align-items:center}.links a{color:var(--fg);text-decoration:none;opacity:.9}.links a:hover{opacity:1}.chip{background:transparent;border:1px solid var(--line);color:var(--fg);padding:6px 10px;border-radius:999px;cursor:pointer}
 /* === Photo Masonry Layout（不裁剪，保留原比例） === */
 /* --- Masonry-style Photo Grid --- */
-.photo-grid {
-  column-count: 3;
-  column-gap: 18px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 40px 20px;
+/* Container 基线 */
+.container{ max-width:1100px; margin:0 auto; padding:0 16px; }
+
+/* 左文右图 */
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap:28px;
+  align-items:center;
+}
+.hero-photo img{
+  width:100%; height:auto; display:block;
+  border-radius:14px;
+  border:1px solid var(--line);
+  box-shadow: 0 0 24px rgba(255, 140, 180, .18);
 }
 
-.photo-grid img {
-  width: 100%;
-  margin-bottom: 18px;
-  border-radius: 16px;
-  break-inside: avoid;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* 成就卡片（两行标题 + 灰标签） */
+.stats{
+  margin-top:22px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(200px,1fr));
+  gap:12px;
+}
+.stat{
+  padding:14px 16px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background: rgba(255,255,255,.02);
+}
+.stat .k{
+  font-weight:600; font-size:20px; line-height:1.2;
+}
+.stat .label{
+  margin-top:6px; font-size:13px; opacity:.75;
 }
 
-.photo-grid img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 25px rgba(255, 182, 193, 0.4); /* 粉金柔光 */
+/* 响应式：手机堆叠显示 */
+@media (max-width: 900px){
+  .hero-grid{ grid-template-columns: 1fr; }
+  .stats{ grid-template-columns: repeat(2, minmax(160px,1fr)); }
+}
+@media (max-width: 560px){
+  .stats{ grid-template-columns: 1fr; }
 }
 
-/* 响应式列数（手机端自动缩成两列） */
-@media (max-width: 900px) {
-  .grid.photos {
-    column-count: 2;
-  }
-}
-@media (max-width: 560px) {
-  .grid.photos {
-    column-count: 1;
-  }
-}
 /* Playlist */
 .playlist-grid {
   display: grid;
