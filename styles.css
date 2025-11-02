@@ -2,7 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap');
 
 body {
-  font-family: 'Inter', sans-serif;
+  background-color: #0a0a0a;
+  color: #eee;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
 h1, h2, .lede {
