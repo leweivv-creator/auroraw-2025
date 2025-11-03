@@ -178,4 +178,27 @@ html[data-theme='bw']{
 }
 @media (max-width: 900px){ .grid.photos{ column-count: 2; } }
 @media (max-width: 560px){ .grid.photos{ column-count: 1; } }
+/* === BGM vinyl chip === */
+.chip.bgm{
+  display:inline-flex; align-items:center; gap:8px;
+  position:relative; border-color: var(--line);
+}
+.chip.bgm .disc{ transition: transform .4s ease, color .2s ease }
+.chip.bgm .bgm-label{ font-weight:600 }
+
+/* 开启时：旋转 + 粉金光晕 */
+.chip.bgm.on{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 35%, transparent);
+  color: var(--accent); /* 让唱片线条变粉金 */
+}
+.chip.bgm.on .disc{
+  animation: spin 4s linear infinite;
+}
+@keyframes spin{ to{ transform: rotate(360deg)} }
+
+/* 悬停轻微高亮 */
+.chip.bgm:hover{
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 20%, transparent);
+}
 
