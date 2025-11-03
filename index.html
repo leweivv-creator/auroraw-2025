@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="/styles.css" />
     <script defer src="/script.js"></script>
   </head>
+  <audio id="bgm" src="/media/bgm.mp3" preload="none" loop></audio>
+<script src="bgm.js" defer></script>
+
   <body>
     <header class="nav">
       <div class="container nav-inner">
@@ -21,6 +24,17 @@
         <nav class="links">
           <a href="#gallery">Photos</a>
           <a href="#impact">Impact</a>
+          <!-- BGM toggle: vinyl icon -->
+<button id="bgmToggle" class="chip bgm" aria-pressed="false" aria-label="Play background music" title="Play music">
+  <!-- 简洁矢量黑胶碟 -->
+  <svg class="disc" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.4" opacity=".9"/>
+    <circle cx="12" cy="12" r="3" fill="currentColor"/>
+    <path d="M6 12a6 6 0 0 1 6-6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".7"/>
+    <path d="M12 18a6 6 0 0 0 6-6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".6"/>
+  </svg>
+  <span class="bgm-label">BGM</span>
+</button>
           <button id="themeToggle" class="chip" aria-label="Toggle theme">PG</button>
         </nav>
       </div>
