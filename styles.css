@@ -179,3 +179,61 @@ html[data-theme='bw']{
 @media (max-width: 900px){ .grid.photos{ column-count: 2; } }
 @media (max-width: 560px){ .grid.photos{ column-count: 1; } }
 
+/* Hero 标题更有气场 */
+h1{ font-size:clamp(36px,5vw,64px); font-style:italic; letter-spacing:.2px; }
+.lede{ font-weight:400; opacity:.9 }
+
+/* CTA 按钮 */
+.cta{ display:flex; gap:12px; margin-top:20px }
+.btn{
+  border:1px solid var(--line); border-radius:999px; padding:10px 14px;
+  text-decoration:none; font-weight:600;
+  transition:transform .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary{ background:var(--accent); color:#000; border-color:var(--accent) }
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 8px 24px rgba(255,77,160,.25) }
+.btn-ghost{ color:var(--fg); background:transparent }
+.btn-ghost:hover{ border-color:var(--accent); box-shadow:0 0 0 2px color-mix(in oklab,var(--accent) 35%, transparent) }
+
+/* 关键词渐变下划线 */
+.hl{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  background-size:100% 2px; background-repeat:no-repeat; background-position:0 100%;
+  padding-bottom:2px;
+}
+
+/* 成就卡片入场动效 + 顺序延迟 */
+.stat{ opacity:0; transform:translateY(8px) }
+.stat.is-in{ opacity:1; transform:none; transition:.6s ease }
+.stats .stat:nth-child(1){ transition-delay:.05s }
+.stats .stat:nth-child(2){ transition-delay:.10s }
+.stats .stat:nth-child(3){ transition-delay:.15s }
+.stats .stat:nth-child(4){ transition-delay:.20s }
+.stats .stat:nth-child(5){ transition-delay:.25s }
+.stats .stat:nth-child(6){ transition-delay:.30s }
+
+/* Section 标题线与副标题 */
+.section-title{ display:flex; align-items:center; gap:12px; margin-bottom:8px }
+.section-title:after{ content:""; flex:1; height:1px; background:var(--line) }
+.section-sub{ color:var(--muted); font-size:13px; margin-bottom:12px }
+
+/* Lightbox 预览 */
+.lightbox{ position:fixed; inset:0; background:rgba(0,0,0,.85); display:none; align-items:center; justify-content:center; z-index:999 }
+.lightbox.open{ display:flex }
+.lightbox img{ max-width:92vw; max-height:92vh; border-radius:12px; border:1px solid var(--line) }
+
+/* Setlist 封面描边增强 */
+.track-card{ position:relative; overflow:hidden; border-radius:14px; border:1px solid var(--line); background:var(--card) }
+.track-card::before{
+  content:""; position:absolute; inset:-1px; border-radius:14px;
+  background:linear-gradient(135deg, color-mix(in oklab,var(--accent) 70%, transparent),
+                                      color-mix(in oklab,var(--accent-2) 70%, transparent));
+  opacity:.0; transition:opacity .25s ease;
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; padding:1px;
+}
+.track-card:hover::before{ opacity:.9 }
+
+/* （可选）封面不裁剪：盒内留黑边 */
+// .cover{ width:100%; aspect-ratio:1/1; object-fit:contain; background:#000 }
+
